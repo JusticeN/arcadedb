@@ -27,6 +27,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class FunctionTest extends TestHelper {
   private static final int TOT = 10000;
 
@@ -62,12 +64,12 @@ public class FunctionTest extends TestHelper {
         final AtomicInteger counter = new AtomicInteger();
         while (rs.hasNext()) {
           Result record = rs.next();
-          Assertions.assertNotNull(record);
-          Assertions.assertFalse(record.getIdentity().isPresent());
-          Assertions.assertEquals(10, ((Number) record.getProperty("count")).intValue());
+          assertNotNull(record);
+          assertFalse(record.getIdentity().isPresent());
+          assertEquals(10, ((Number) record.getProperty("count")).intValue());
           counter.incrementAndGet();
         }
-        Assertions.assertEquals(1, counter.get());
+        assertEquals(1, counter.get());
       }
     });
   }
@@ -84,12 +86,12 @@ public class FunctionTest extends TestHelper {
         final AtomicInteger counter = new AtomicInteger();
         while (rs.hasNext()) {
           Result record = rs.next();
-          Assertions.assertNotNull(record);
-          Assertions.assertFalse(record.getIdentity().isPresent());
-          Assertions.assertEquals(4, ((Number) record.getProperty("avg")).intValue());
+          assertNotNull(record);
+          assertFalse(record.getIdentity().isPresent());
+          assertEquals(4, ((Number) record.getProperty("avg")).intValue());
           counter.incrementAndGet();
         }
-        Assertions.assertEquals(1, counter.get());
+        assertEquals(1, counter.get());
       }
     });
   }
@@ -105,12 +107,12 @@ public class FunctionTest extends TestHelper {
         final AtomicInteger counter = new AtomicInteger();
         while (rs.hasNext()) {
           Result record = rs.next();
-          Assertions.assertNotNull(record);
-          Assertions.assertFalse(record.getIdentity().isPresent());
-          Assertions.assertEquals(TOT - 1, ((Number) record.getProperty("max")).intValue());
+          assertNotNull(record);
+          assertFalse(record.getIdentity().isPresent());
+          assertEquals(TOT - 1, ((Number) record.getProperty("max")).intValue());
           counter.incrementAndGet();
         }
-        Assertions.assertEquals(1, counter.get());
+        assertEquals(1, counter.get());
       }
     });
   }
@@ -126,12 +128,12 @@ public class FunctionTest extends TestHelper {
         final AtomicInteger counter = new AtomicInteger();
         while (rs.hasNext()) {
           Result record = rs.next();
-          Assertions.assertNotNull(record);
-          Assertions.assertFalse(record.getIdentity().isPresent());
-          Assertions.assertEquals(0, ((Number) record.getProperty("min")).intValue());
+          assertNotNull(record);
+          assertFalse(record.getIdentity().isPresent());
+          assertEquals(0, ((Number) record.getProperty("min")).intValue());
           counter.incrementAndGet();
         }
-        Assertions.assertEquals(1, counter.get());
+        assertEquals(1, counter.get());
       }
     });
   }
