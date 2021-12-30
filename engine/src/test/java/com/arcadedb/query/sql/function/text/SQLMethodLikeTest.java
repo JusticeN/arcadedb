@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.arcadedb.query.sql.method.misc;
+package com.arcadedb.query.sql.function.text;
 
 import com.arcadedb.query.sql.executor.SQLMethod;
 import com.arcadedb.query.sql.function.text.SQLMethodLike;

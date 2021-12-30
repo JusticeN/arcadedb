@@ -41,9 +41,11 @@ public class SQLMethodReplace extends AbstractSQLMethod {
   @Override
   public Object execute( final Object iThis, final Identifiable iCurrentRecord,
       final CommandContext iContext, final Object ioResult, final Object[] iParams) {
+    if (iParams == null) return iThis;
+
     if (iThis == null || iParams[0] == null || iParams[1] == null)
       return iParams[0];
 
-    return iThis.toString().replace(iParams[0].toString(), iParams[1].toString());
+    return iThis.toString().replaceAll(iParams[0].toString(), iParams[1].toString());
   }
 }
